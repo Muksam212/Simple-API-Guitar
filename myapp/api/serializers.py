@@ -8,29 +8,6 @@ class GuitarSerializer(serializers.ModelSerializer):
         fields = ('name','member')
         depth = 1
 
-
-# class BandMemberRegistration(serializers.ModelSerializer):
-#     username = serializers.CharField(max_length=100)
-#     email = serializers.EmailField(max_length=100)
-#     password = serializers.CharField(max_length=100, write_only=True)
-    
-#     class Meta:
-#         model = BandMember
-#         fields = ('username','email','password')
-
-#     def validate(self, args):
-#         username = args.get('username')
-#         email = args.get('email')
-
-#         if BandMember.objects.filter(username=username).exists():
-#             raise serializers.ValidationError("Username already exists")
-#         elif BandMember.objects.filter(email=email).exists():
-#             raise serializers.ValidationError("Email already exists")
-#         return super().validate(args)
-
-#     def create(self,validated_data):
-#         return BandMember.objects.create_user(**validated_data)
-
 class BandMemberSerializer(serializers.ModelSerializer):
     guitars = GuitarSerializer(many=True)
     class Meta:
