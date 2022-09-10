@@ -33,22 +33,6 @@ class BandDelete(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-#now i need to do jwt authentication of band member 
-# class BandMemberRegistrationAPIView(GenericAPIView):
-#     serializer_class = BandMemberRegistration
-#     #permission_classes = [IsAuthenticated]
-
-#     def post(self, request):
-#         serializer = self.get_serializer(data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response({
-#                 'RequestId':str(uuid.uuid4()),
-#                 'Message':'BandMember Registration Successfully',
-#                 'BandMember':serializer.data
-#             }, status=status.HTTP_201_CREATED)
-#         return Response({'Errors':serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
-
 class BandMemberCreate(CreateAPIView):
     serializer_class = BandMemberSerializer
     queryset = BandMember.objects.all()
