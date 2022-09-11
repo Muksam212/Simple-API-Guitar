@@ -22,7 +22,7 @@ class Band(DateTimeStamp):
 
 class BandMember(DateTimeStamp):
     name = models.CharField(max_length=100)
-    band = models.ForeignKey(Band, on_delete=models.CASCADE, related_name = "band_members")
+    band = models.ForeignKey(Band, on_delete=models.CASCADE, related_name = "band_members", null=True, blank=True)
     image = models.ImageField(upload_to='band/member', blank=True, null=True)
     phone_number = models.PositiveIntegerField(null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
